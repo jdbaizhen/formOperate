@@ -1,0 +1,9 @@
+tr,tr>th{
+    text-align: center;
+}
+.hideInput{
+    display: none;
+}
+.hideSpan{
+    display: none;
+}

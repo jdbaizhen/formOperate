@@ -1,0 +1,64 @@
+<!DOCTYPE html>  
+<html>  
+<head>  
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />  
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="css/style.css">
+<title>vue实现表单的增删改查</title>
+</head>
+<div id="container">
+    <table class="table table-border table-hover">
+        <tr>
+            <th>班级</th>
+            <th>姓名</th>
+            <th>年龄</th>
+            <th>性别</th>
+            <th>操作</th>
+        </tr>
+        <tr v-for="item in student" >
+            <td >
+                <span :class="{'hideSpan':item.showSpan}">{{item.grade}}</span>
+                <div class="form-group" :class="{'hideInput':item.showInput}">
+                    <label class="control-label sr-only">班级</label>
+                    <input type="text" class="form-control" v-model.lazy="item.grade">
+                </div>
+            </td>
+            <td >
+                <span :class="{'hideSpan':item.showSpan}">{{item.name}}</span>
+                <div class="form-group" :class="{'hideInput':item.showInput}">
+                    <label class="control-label sr-only">姓名</label>
+                    <input type="text" class="form-control" v-model.lazy="item.name">
+                </div>
+            </td>
+            <td >
+                <span :class="{'hideSpan':item.showSpan}">{{item.age}}</span>
+                <div class="form-group" :class="{'hideInput':item.showInput}">
+                    <label class="control-label sr-only">年龄</label>
+                    <input type="text" class="form-control" v-model.lazy="item.age">
+                </div>
+            </td>
+            <td >
+                <span :class="{'hideSpan':item.showSpan}">{{item.sex}}</span>
+                <div class="form-group" :class="{'hideInput':item.showInput}">
+                    <label class="control-label sr-only">性别</label>
+                    <input type="text" class="form-control" v-model.lazy="item.sex">
+                </div>
+            </td>
+
+            <td>
+                <a href="#" @click="fixed(item)">修改</a>
+                <a href="#" @click="confirm(item)">确认</a>
+                <a href="#" @click="del(item)">删除</a>
+            </td>
+        </tr>
+    </table>
+    <button class="btn btn-success" @click="addText">新增</button>
+</div>
+
+<script type="text/javascript" src="js/vue.min.js"></script>
+<script type="text/javascript" src="js/vue-resource.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+
+</body>  
+</html>
